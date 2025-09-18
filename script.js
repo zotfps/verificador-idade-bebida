@@ -10,11 +10,9 @@ function pedirBebida() {
         alert("Por favor, confirme sua idade primeiro.");
         return;
     }
-
     if (ultimaIdade >= 18) {
         const idoso = (ultimaIdade >= 65);
-
-        const bebida = window.prompt("Qual bebida você quer?").toLowerCase();
+        const bebida = window.prompt("Qual bebida você quer?").trim().toLowerCase();
         switch (bebida) {
             case "cerveja":
                 if (idoso) {
@@ -38,6 +36,17 @@ function pedirBebida() {
                 break;
         }
     } else {
-        alert("Você não pode beber");
+        alert("Você é menor de idade, só pode pedir suco ou refrigerante.");
+        switch(window.prompt("Qual bebida você quer?").toLowerCase()) {
+            case "refrigerante":
+                alert("Aqui está seu refrigerante");
+                break;
+            case "suco":
+                alert("Aqui está seu suco");
+                break;
+            default:
+                alert("Bebida não disponível, escolha suco ou refrigerante.");
+                break;
+        }
     }
 }
